@@ -1,0 +1,10 @@
+<div id="projects">
+  <div>
+    <h3>Projects</h3>
+    <% @projs.each do |proj| %>
+      <div class="proj">
+        <a class="project_link" href="#"><%= proj.name %></a>
+      </div>
+    <% end %>
+  </div>
+</div>

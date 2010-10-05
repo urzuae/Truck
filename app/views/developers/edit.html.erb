@@ -1,0 +1,16 @@
+<h1>Editing developer</h1>
+
+<% form_for(@developer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_github %><br />
+    <%= f.text_field :user_github %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @developer %> |
+<%= link_to 'Back', developers_path %>

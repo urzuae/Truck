@@ -1,2 +1,35 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<div class="unit header">
+<h1 id="title">Dashboard</h1>
+</div>
+
+<div class="unit body">
+  <div class="columns on-3 same-height">
+    <div class="column fixed sidebar" style="width:200px;">
+      <div class="container">
+      <%= render 'developers/sidebar' %>
+      <%= render 'shared/sidebar' %>
+      </div>
+    </div>
+    <div class="column content" id="github">
+      <table class="task_tracker">
+        <thead>
+          <th>Date</th>
+          <th>Commit</th>
+        </thead>
+        <tbody id="commits">
+        </tbody>
+      </table>
+    </div>
+    <div class="column content" id="tracks">
+      <table class="task_tracker">
+        <thead>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Task</th>
+        </thead>
+        <tbody id="tracker">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div>
+  <h3>Developers</h3>
+  <% @devs.each do |dev| %>
+    <div class="dev">
+      <a class="dev_link" href="#" id="<%=dev.id%>"><%= dev.user_github %></a>
+    </div>
+  <% end %>
+</div>

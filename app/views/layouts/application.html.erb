@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <%= stylesheet_link_tag 'elastic' %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'elastic' %>
+    <%= javascript_include_tag 'jquery' %>
+    
+    <%= javascript_include_tag 'projects' %>
+  </head>
+  <body>
+    <div id="contain">
+      <div class="column">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
