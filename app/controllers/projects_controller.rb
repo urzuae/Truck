@@ -46,5 +46,6 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_repo_name(params[:data_proj])
     @dev = Developer.find(params[:data_param])
     @commits = @project.dev_commits(@dev)
+    @tickets = @project.dev_tasks(@dev, @pivotal)
   end
 end

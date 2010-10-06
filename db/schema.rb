@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20101005134828) do
   create_table "developers", :force => true do |t|
     t.string   "user_github"
     t.string   "email"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

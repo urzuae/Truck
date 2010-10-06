@@ -6,6 +6,10 @@
     <%= f.text_field :user_github %> <%= error_message_on @developer, :user_github, :prepend_text => "*This field " %>
   </p>
   <p>
+    <%= f.label :name, 'Name* (must match in pivotal)' %><br>
+    <%= f.text_field :name %> <%= error_message_on @developer, :email, :prepend_text => "*Email " %>
+  </p>
+  <p>
     <%= f.label :email %><br>
     <%= f.text_field :email %> <%= error_message_on @developer, :email, :prepend_text => "*Email " %>
   </p>

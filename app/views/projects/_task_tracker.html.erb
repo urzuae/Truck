@@ -10,7 +10,7 @@
       <tr>
         <td class="task"><%= ticket.name %>
           <div class="task_info">
-            <div class="status"><%= ticket.current_state %></div>
+            <div class="status"><%= ticket.owned_by %></div>
             <div class="task_date"><%= ticket.updated_at.strftime("%b %d") %></div>
           </div>
         </td>

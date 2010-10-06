@@ -19,11 +19,35 @@ class Project < ActiveRecord::Base
   def dev_commits(dev)
     cmts = []
     commits = self.commits
-    for commit in commits["commits"]
-      if commit["author"]["login"] == dev.user_github
-        cmts << commit unless cmts.include?(commit)
+    unless commits.nil?
+      for commit in commits["commits"]
+        if commit["author"]["login"] == dev.user_github
+          cmts << commit unless cmts.include?(commit)
+        end
       end
     end
     return cmts
   end
+  
+  def dev_tasks(dev, pivotal)
+    ticks = []
+    proj = pivotal.project(self.pivotal_id)
+    proj.tickets.each do |ticket|
+      if ticket.owned_by == dev.name || ticket.requested_by == dev.name
+        ticks << ticket unless ticks.include?(ticket)
+      end
+    end
+    return ticks
+  end
+  
+  def find_devs(developers)
+    devs = []
+    clbs = collaborators
+    developers.each do |dev|
+      if collaborators.include?(dev.user_github)
+        devs << dev unless devs.include?(dev)
+      end
+    end
+  end
+  
 end

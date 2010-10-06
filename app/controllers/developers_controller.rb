@@ -5,8 +5,9 @@ class DevelopersController < ApplicationController
   end
 
   def show
+    @projects = Project.all
     @dev = Developer.find(params[:id])
-    @repos = @dev.repos
+    @repos = @dev.repos(@projects)
   end
 
   def new

@@ -3,5 +3,7 @@ $("#main").html(
   <div class="column content" id="github">\
     <%= escape_javascript render :partial => "github_tracker", :object => @commits %>\
   </div>\
-'
-);
+  <div class="column content" id="github">\
+    <%= escape_javascript render :partial => "task_tracker", :object => @tickets %>\
+  </div>\
+');
