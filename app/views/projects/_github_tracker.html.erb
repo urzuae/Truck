@@ -1,3 +1,6 @@
+<% if @commits.nil? %>
+<h3>There are no commits.</h3>
+<% else %>
 <table class="github">
   <thead>
     <th>Commits</th>
@@ -15,3 +18,4 @@
     <% end %> 
   </tbody>
 </table>
+<% end %>

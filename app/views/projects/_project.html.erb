@@ -1,27 +1,27 @@
 <% form_for @project, :url => '/projects', :html => {:class => "form_element"} do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %> <%= error_message_on @project, :name, :prepend_text => "*This field " %>
+    <%= f.text_field :name %> <%= error_message_on @project, :name, :prepend_text => "*This field " %><br>
   </p>
   <p>
     <%= f.label :git_hubowner, 'Git hub owner' %><br>
-    <%= f.text_field :github_owner %> <%= error_message_on @project, :github_owner, :prepend_text => "*This field " %>
+    <%= f.text_field :github_owner %> <%= error_message_on @project, :github_owner, :prepend_text => "*This field " %><br>
   </p>
   <p>
     <%= f.label :repo_name, "Repository name (Github)*" %><br>
-    <%= f.text_field :repo_name %> <%= error_message_on @project, :repo_name, :prepend_text => "*Repository name " %>
+    <%= f.text_field :repo_name %> <%= error_message_on @project, :repo_name, :prepend_text => "*Repository name " %><br>
   </p>
   <p>
     <%= f.label :pivotal_id, "Pivotal Tracker (id)*"%><br>
-    <%= f.text_field :pivotal_id %> <%= error_message_on @project, :pivotal_id, :prepend_text => "*This field " %>
+    <%= f.text_field :pivotal_id %> <%= error_message_on @project, :pivotal_id, :prepend_text => "*This field " %><br>
   </p>
   <p>
     <%= f.label :basecamp_id, "Basecamp HQ (id)*"%><br>
-    <%= f.text_field :basecamp_id %> <%= error_message_on @project, :basecamp_id, :prepend_text => "*This field " %>
+    <%= f.text_field :basecamp_id %> <%= error_message_on @project, :basecamp_id, :prepend_text => "*This field " %><br>
   </p>
   <p>
     <%= f.label :basecamp_url, "Basecamp HQ (domain)*"%><br>
-    <%= f.text_field :basecamp_url %> <%= error_message_on @project, :basecamp_url, :prepend_text => "*This field " %>
+    <%= f.text_field :basecamp_url %> <%= error_message_on @project, :basecamp_url, :prepend_text => "*This field " %><br>
   </p>
   <p>
     <%= f.submit 'Submit' %>

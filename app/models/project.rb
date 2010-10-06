@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
   
-  #validates_presence_of :name, :repo_name, :owner
+  validates_presence_of :name
   
-  #validates_uniqueness_of :name, :repo_name
+  validates_uniqueness_of :name, :repo_name
   
   def collaborators
     load_url("http://github.com/api/v2/yaml/repos/show/#{github_owner}/#{repo_name}/collaborators")["collaborators"]
@@ -29,12 +29,14 @@ class Project < ActiveRecord::Base
     return cmts
   end
   
-  def dev_tasks(dev, pivotal)
+  def dev_tasks(dev)
     ticks = []
-    proj = pivotal.project(self.pivotal_id)
-    proj.tickets.each do |ticket|
-      if ticket.owned_by == dev.name || ticket.requested_by == dev.name
-        ticks << ticket unless ticks.include?(ticket)
+    proj = try_connection(self.pivotal_id)
+    unless proj.nil?
+      proj.tickets.each do |ticket|
+        if ticket.owned_by == dev.name || ticket.requested_by == dev.name
+          ticks << ticket unless ticks.include?(ticket)
+        end
       end
     end
     return ticks
@@ -43,11 +45,33 @@ class Project < ActiveRecord::Base
   def find_devs(developers)
     devs = []
     clbs = collaborators
+    cts = self.commits
     developers.each do |dev|
-      if collaborators.include?(dev.user_github)
-        devs << dev unless devs.include?(dev)
+      unless clbs.nil?
+        if clbs.include?(dev.user_github)
+          devs << dev unless devs.include?(dev)
+        end
+      end
+      unless cts["commits"].nil?
+        for commit in cts["commits"]
+          if commit["author"]["login"] == dev.user_github
+            devs << dev unless devs.include?(dev)
+          end
+        end
       end
     end
+    
+    return devs
   end
+  
+  def try_connection(id)
+    @pivotal = TicketMaster.new(:pivotal, {:username => 'urzuae', :password => 'redsox'})
+    begin
+      @pivotal.project(id)
+    rescue
+      nil
+    end
+  end
+  
   
 end

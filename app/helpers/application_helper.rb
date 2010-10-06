@@ -2,7 +2,7 @@
 module ApplicationHelper
   
   def connect_piv
-    @pivotal = TicketMaster.new(:pivotal, {:username => 'urzuae', :password => 'cinthiacee'})
+    @pivotal = TicketMaster.new(:pivotal, {:username => 'urzuae', :password => 'redsox'})
   end
   
   def try_connection

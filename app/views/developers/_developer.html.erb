@@ -2,16 +2,16 @@
 
 <% form_for @developer, :html => {:class => "form_element"} do |f| %>
   <p>
-    <%= f.label :user_github %><br>
-    <%= f.text_field :user_github %> <%= error_message_on @developer, :user_github, :prepend_text => "*This field " %>
+    <%= f.label :user_github, "Github user (login) :" %><br>
+    <%= f.text_field :user_github %> <%= error_message_on @developer, :user_github, :prepend_text => "*This field " %><br>
   </p>
   <p>
-    <%= f.label :name, 'Name* (must match in pivotal)' %><br>
-    <%= f.text_field :name %> <%= error_message_on @developer, :email, :prepend_text => "*Email " %>
+    <%= f.label :name, 'Name* (must match in pivotal) :' %><br>
+    <%= f.text_field :name %> <%= error_message_on @developer, :name, :prepend_text => "*Email " %><br>
   </p>
   <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %> <%= error_message_on @developer, :email, :prepend_text => "*Email " %>
+    <%= f.label :email, 'Email :' %><br>
+    <%= f.text_field :email %> <%= error_message_on @developer, :email, :prepend_text => "*Email " %><br>
   </p>
   <p>
     <%= f.submit 'Submit' %>

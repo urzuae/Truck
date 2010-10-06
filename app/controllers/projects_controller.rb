@@ -1,10 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :connect_piv
   
-  def index
-  end
-
-
   def new
     @project = Project.new
   end
@@ -40,12 +36,13 @@ class ProjectsController < ApplicationController
     @proj = try_connection
     @tickets = @proj.nil? ? [] : @proj.tickets
     @commits = @project.commits["commits"]
+    @devs = @project.find_devs(Developer.all)
   end
   
   def task
     @project = Project.find_by_repo_name(params[:data_proj])
     @dev = Developer.find(params[:data_param])
     @commits = @project.dev_commits(@dev)
-    @tickets = @project.dev_tasks(@dev, @pivotal)
+    @tickets = @project.dev_tasks(@dev)
   end
 end

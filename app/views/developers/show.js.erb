@@ -2,6 +2,7 @@ $("#repos").html("");
 $("#repos").append('<small><li class="found_repo">Current Projects for: <%= @dev.user_github%></li></small>')
 <% @repos.each do |repo| %>
   $("#repos").append('<small><li class="found_repo">\
-  <a href="#" class="user_project_link" id="<%= repo.repo_name %>" name="<%=@dev.id%>"><%= repo.repo_name %></a>\
+  <a href="#" class="user_project_link" id="<%= repo.repo_name %>" name="<%=@dev.id%>"><%= repo.name %></a>\
   </li></small>');
 <% end %>
+$("#main").html("<%= escape_javascript render :partial => 'shared/main'%>");

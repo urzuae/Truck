@@ -17,6 +17,15 @@ body {
   margin-left: 20px;
 }
 
+#home {
+  text-decoration:none;
+  color: #000;
+}
+
+#home:hover {
+  color: #4B7399;
+}
+
 .header {
   text-align: center;
 }
