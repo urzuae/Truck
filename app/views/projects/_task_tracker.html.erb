@@ -1,18 +1,10 @@
-<div class="container full-height">
-  <table class="task_tracker">
-    <thead>
-      <th>Date</th>
-      <th>Status</th>
-      <th>Task</th>
-    </thead>
-    <tbody id="tracker">
-    <% @project.tickets.each do |ticket| %>
-      <tr>
-        <td class="date"><%= ticket.updated_at.strftime("%Y-%m-%d") %></td>
-        <td class="status"><%= ticket.current_state %></td>
-        <td><%= ticket.name %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+<% @tickets.each do |ticket| %>
+  <tr>
+    <td class="task"><%= ticket.name %>
+      <div class="task_info">
+        <div class="status"><%= ticket.current_state %></div>
+        <div class="task_date"><%= ticket.updated_at.strftime("%b %d") %></div>
+      </div>
+    </td>
+  </tr>
+<% end %> 

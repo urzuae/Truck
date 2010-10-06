@@ -22,10 +22,6 @@ body {
   text-align: center;
 }
 
-.task_tracker td {
-  background: #CFC;
-  padding: 5px;
-}
 
 .status, .date {
   text-align: center;
@@ -34,4 +30,39 @@ body {
 .date {
   width:70px;
 }
+tr {
+  margin-top: 5px;
+}
 
+td {
+  font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+  padding: 5px;
+}
+
+td.commit {
+  background: #EAF2F5;
+  background-image: url('/images/bg_gradient.gif');
+  border: solid 1px #BEDCE7;
+  font-size: 12px;
+}
+
+td.task {
+  background: #F8F8F8;
+  background-image: url('/images/row_bg.png');
+  border: solid 1px #E1E1E1;
+  font-size: 12px;  
+}
+
+.commit_info, .task_info {
+  margin: 5px;
+}
+
+.author, .status {
+  padding-right: 10px;
+  float: left;
+}
+
+.cmt_date, .task_date {
+  color: #888;
+  float: left;
+}

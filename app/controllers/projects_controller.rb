@@ -10,16 +10,10 @@ class ProjectsController < ApplicationController
     @project = @pivotal.project.find(:first, :name => params[:data_param])
     @tickets = @project.tickets
     @commits = YAML::load(Net::HTTP.get(URI.parse("http://github.com/api/v2/yaml/commits/list/urzuae/scrum/master")))
-    render :json => [@project, @tickets, @commits]
   end
 
   def new
     @project = Project.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @project }
-    end
   end
 
   def edit

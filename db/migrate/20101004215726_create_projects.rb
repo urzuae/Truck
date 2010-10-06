@@ -2,6 +2,8 @@ class CreateProjects < ActiveRecord::Migration
   def self.up
     create_table :projects do |t|
       t.string :name
+      t.string :repo_name
+      t.string :pivotal_name
 
       t.timestamps
     end
