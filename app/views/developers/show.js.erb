@@ -1,6 +1,7 @@
-$("#repos").text("");
+$("#repos").html("");
+$("#repos").append('<small><li class="found_repo">Current Projects for: <%= @dev.user_github%></li></small>')
 <% @repos.each do |repo| %>
-  $("#repos").append('<li class="found_repo">\
-  <a href="#" class="project_link" id="<%= repo.repo_name %>"><%= repo.repo_name %></a>\
-  </li>');
+  $("#repos").append('<small><li class="found_repo">\
+  <a href="#" class="user_project_link" id="<%= repo.repo_name %>" name="<%=@dev.id%>"><%= repo.repo_name %></a>\
+  </li></small>');
 <% end %>

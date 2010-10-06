@@ -16,6 +16,9 @@ class Developer < ActiveRecord::Base
       if collaborators.include?(self.user_github)
         matches << proj unless matches.include?(proj)
       end
+      unless proj.dev_commits(self).empty?
+        matches << proj unless matches.include?(proj)
+      end
     end
     return matches
   end

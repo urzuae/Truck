@@ -15,4 +15,15 @@ class Project < ActiveRecord::Base
   def load_url(url)
     YAML::load(Net::HTTP.get(URI.parse(url)))
   end
+  
+  def dev_commits(dev)
+    cmts = []
+    commits = self.commits
+    for commit in commits["commits"]
+      if commit["author"]["login"] == dev.user_github
+        cmts << commit unless cmts.include?(commit)
+      end
+    end
+    return cmts
+  end
 end

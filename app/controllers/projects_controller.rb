@@ -4,12 +4,6 @@ class ProjectsController < ApplicationController
   def index
   end
 
-  def find
-    @project = Project.find_by_repo_name(params[:data_param])
-    @proj = try_connection
-    @tickets = @proj.nil? ? [] : @proj.tickets
-    @commits = @project.commits
-  end
 
   def new
     @project = Project.new
@@ -41,4 +35,16 @@ class ProjectsController < ApplicationController
     @project.destroy
   end
   
+  def find
+    @project = Project.find_by_repo_name(params[:data_param])
+    @proj = try_connection
+    @tickets = @proj.nil? ? [] : @proj.tickets
+    @commits = @project.commits["commits"]
+  end
+  
+  def task
+    @project = Project.find_by_repo_name(params[:data_proj])
+    @dev = Developer.find(params[:data_param])
+    @commits = @project.dev_commits(@dev)
+  end
 end

@@ -1,0 +1,7 @@
+$("#main").html(
+'<div class="columns on-2">\
+  <div class="column content" id="github">\
+    <%= escape_javascript render :partial => "github_tracker", :object => @commits %>\
+  </div>\
+'
+);

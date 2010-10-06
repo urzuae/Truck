@@ -34,6 +34,17 @@ $(function() {
     Elastic.refresh();
   });
   
+  $("a.user_project_link").live('click', function() {
+    url_action = "/projects/task/"
+    data_param = {data_param: $(this).attr('name'), data_proj: $(this).attr('id')};
+    $.ajax({
+      url: url_action,
+      data: data_param,
+      dataType: 'script'
+    });
+    return false;
+  });
+  
   $("a.dev_link").live('click', function() {
     url_action = "/developers/" + $(this).attr('id');
     $.ajax({
