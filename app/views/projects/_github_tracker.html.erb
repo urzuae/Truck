@@ -1,10 +1,17 @@
-<% for commit in @commits["commits"] %>
-  <tr>
-    <td class="commit"><%= commit["message"] %>
-      <div class="commit_info">
-        <div class="author"><%= commit["committer"]["login"] %></div>
-        <div class="cmt_date"><%= commit["committed_date"].to_date.strftime("%b %d") %></div>
-      </div>
-    </td>
-  </tr>
-<% end %> 
+<table class="github">
+  <thead>
+    <th>Commits</th>
+  </thead>
+  <tbody id="commits">
+    <% for commit in @commits["commits"] %>
+      <tr>
+        <td class="commit"><%= commit["message"] %>
+          <div class="commit_info">
+            <div class="author"><%= commit["committer"]["login"] %></div>
+            <div class="cmt_date"><%= commit["committed_date"].to_date.strftime("%b %d") %></div>
+          </div>
+        </td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>

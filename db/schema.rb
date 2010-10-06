@@ -13,6 +13,7 @@ ActiveRecord::Schema.define(:version => 20101005134828) do
 
   create_table "developers", :force => true do |t|
     t.string   "user_github"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -20,7 +21,10 @@ ActiveRecord::Schema.define(:version => 20101005134828) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "repo_name"
-    t.string   "pivotal_name"
+    t.string   "pivotal_id"
+    t.string   "github_owner"
+    t.string   "basecamp_url"
+    t.string   "basecamp_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

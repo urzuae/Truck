@@ -1,10 +1,15 @@
 <div id="projects">
   <div>
     <h3>Projects</h3>
-    <% @projects.each do |proj| %>
-      <div class="proj">
-        <a class="project_link" href="#"><%= proj.name %></a>
-      </div>
-    <% end %>
+    <ul>
+      <% @projects.each do |proj| %>
+        <li class="proj">
+          <a class="project_link" href="#" id="<%= proj.repo_name%>"><%= proj.name %></a>
+        </li>
+      <% end %>
+      <li class="proj">
+        <a href="#" class="new_element" id="new_project" name="projects">New Project</a>
+      </li>
+    </ul>
   </div>
 </div>

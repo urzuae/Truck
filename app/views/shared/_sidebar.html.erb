@@ -1,13 +1,13 @@
 <div id="projects">
   <div>
     <h3>Projects</h3>
-    <% @projs.each do |proj| %>
+    <% @projects.each do |proj| %>
       <div class="proj">
         <a class="project_link" href="#"><%= proj.name %></a>
       </div>
     <% end %>
     <div class="proj">
-      <a href="#" id="new_project">New Project</a>
+      <a href="#" class="new_element" id="new_project" name="projects">New Project</a>
     </div>
   </div>
 </div>

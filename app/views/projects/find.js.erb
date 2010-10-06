@@ -1,24 +1,11 @@
 $("#title").html('<%= escape_javascript @project.name %>');
 $("#main").html(
 '<div class="columns on-2">\
-  <div class="column content" id="tracks">\
-    <table class="task_tracker">\
-      <thead>\
-        <th>Task</th>\
-      </thead>\
-      <tbody id="tracker">\
-        <%= escape_javascript render :partial => "github_tracker", :object => @commits %>\
-      </tbody>\
-    </table>\
-  </div>\
   <div class="column content" id="github">\
-    <table class="task_tracker">\
-      <thead>\
-        <th>Commit</th>\
-      </thead>\
-      <tbody id="commits">\
-        <%= escape_javascript render :partial => "task_tracker", :object => @tickets %>\
-      </tbody>\
-    </table>\
+    <%= escape_javascript render :partial => "github_tracker", :object => @commits %>\
+  </div>\
+  <div style="width:10px;display:block;"></div>\
+  <div class="column content" id="tracks">\
+    <%= escape_javascript render :partial => "task_tracker", :object => @tickets %>\
   </div>'
 );

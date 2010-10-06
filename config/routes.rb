@@ -1,7 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :developers
-
-  
+  map.resources :projects, :only => [:new, :index, :create]
   map.root :controller => :dashboard
   # The priority is based upon order of creation: first created -> highest priority.
 

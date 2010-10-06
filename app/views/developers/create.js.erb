@@ -1,0 +1,26 @@
+<% if @saved %>
+  $("#devs_side").html("<%= escape_javascript render :partial => 'sidebar', :object => @devs %>");
+  $("#main").html('<div class="columns">\
+    <div class="column content" id="github">\
+      <table class="task_tracker">\
+        <thead>\
+          <th>Commit</th>\
+        </thead>\
+        <tbody id="commits">\
+        </tbody>\
+      </table>\
+    </div>\
+    <div class="column content" id="tracks">\
+      <table class="task_tracker">\
+        <thead>\
+          <th>Task</th>\
+        </thead>\
+        <tbody id="tracker">\
+        </tbody>\
+      </table>\
+    </div>\
+  </div>\
+  ');
+<% else %>
+  $("#main").html("<%= escape_javascript render :partial => 'developer', :object => @developer %>");
+<% end %>

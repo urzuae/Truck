@@ -14,19 +14,11 @@ class DevelopersController < ApplicationController
   # GET /developers/1.xml
   def show
     @dev = Developer.find(params[:id])
-    @pivotal = TicketMaster.new(:pivotal, {:username => @dev.user_github, :password => 'cinthiacee'})
-    @projects = @pivotal.project.find
+    @repos = @dev.repos
   end
 
-  # GET /developers/new
-  # GET /developers/new.xml
   def new
     @developer = Developer.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @developer }
-    end
   end
 
   # GET /developers/1/edit
@@ -38,16 +30,8 @@ class DevelopersController < ApplicationController
   # POST /developers.xml
   def create
     @developer = Developer.new(params[:developer])
-
-    respond_to do |format|
-      if @developer.save
-        format.html { redirect_to(@developer, :notice => 'Developer was successfully created.') }
-        format.xml  { render :xml => @developer, :status => :created, :location => @developer }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @developer.errors, :status => :unprocessable_entity }
-      end
-    end
+    @saved = @developer.save ? true : false
+    @devs = Developer.all
   end
 
   # PUT /developers/1

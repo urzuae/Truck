@@ -1,1 +1,6 @@
-$("#projects").html('<%= escape_javascript render :partial => "projects/sidebar" %>');
+$("#repos").text("");
+<% @repos.each do |repo| %>
+  $("#repos").append('<li class="found_repo">\
+  <a href="#" class="project_link" id="<%= repo.repo_name %>"><%= repo.repo_name %></a>\
+  </li>');
+<% end %>

@@ -1,10 +1,21 @@
-<% @tickets.each do |ticket| %>
-  <tr>
-    <td class="task"><%= ticket.name %>
-      <div class="task_info">
-        <div class="status"><%= ticket.current_state %></div>
-        <div class="task_date"><%= ticket.updated_at.strftime("%b %d") %></div>
-      </div>
-    </td>
-  </tr>
-<% end %> 
+<% if @tickets.nil? || @tickets.empty? %>
+  <h3>No assign into Pivotal Tracker</h3>
+<% else %>
+<table class="task_tracker">
+  <thead>
+    <th>Tasks</th>
+  </thead>
+  <tbody id="tracker">
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td class="task"><%= ticket.name %>
+          <div class="task_info">
+            <div class="status"><%= ticket.current_state %></div>
+            <div class="task_date"><%= ticket.updated_at.strftime("%b %d") %></div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

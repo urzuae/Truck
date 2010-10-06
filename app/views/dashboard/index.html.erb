@@ -7,13 +7,20 @@
     
     <div class="column fixed sidebar" style="width:200px;">
       <div class="container">
-      <%= render 'developers/sidebar' %>
-      <%= render 'shared/sidebar' %>
+        <div id="devs_side">
+          <%= render 'developers/sidebar' %>
+        </div>
+        <div class="projs_side">
+          <%= render 'projects/sidebar' %>
+        </div>
       </div>
+    </div>
+    <div class="column span-2" id="repos">
+      Found repos
     </div>
     <div class="column span-2" id="main">
       
-      <div class="columns">
+      <div class="columns on-2">
         <div class="column content" id="github">
           <table class="task_tracker">
             <thead>
@@ -23,7 +30,7 @@
             </tbody>
           </table>
         </div>
-      
+        <div style="width:10px;"></div>
         <div class="column content" id="tracks">
           <table class="task_tracker">
             <thead>

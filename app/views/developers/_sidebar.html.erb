@@ -1,8 +1,14 @@
 <div>
   <h3>Developers</h3>
+  <ul>
   <% @devs.each do |dev| %>
-    <div class="dev">
-      <a class="dev_link" href="#" id="<%=dev.id%>"><%= dev.user_github %></a>
-    </div>
+    <li class="dev">
+      <%= gravatar_for dev, :size => 25 %>
+      <a class="dev_link" href="#" id="<%=dev.id%>"> <%= dev.user_github %></a>
+    </li>
   <% end %>
+    <li class="dev">
+      <a href="#" class="new_element" id="new_developer" name="developers">+ Add</a>
+    </li>
+  </ul>
 </div>

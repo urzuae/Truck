@@ -2,6 +2,7 @@ class CreateDevelopers < ActiveRecord::Migration
   def self.up
     create_table :developers do |t|
       t.string :user_github
+      t.string :email
 
       t.timestamps
     end

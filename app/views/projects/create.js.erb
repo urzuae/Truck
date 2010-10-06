@@ -1,0 +1,5 @@
+<% if @saved %>
+  $("#devs_side").html("<%= escape_javascript render :partial => 'sidebar', :object => @projects %>");
+<% else %>
+  $("#main").html("<%= escape_javascript render :partial => 'project', :object => @project %>");
+<% end %>

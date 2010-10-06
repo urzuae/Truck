@@ -1,0 +1,15 @@
+<h2>New developer</h2>
+
+<% form_for @developer, :html => {:class => "form_element"} do |f| %>
+  <p>
+    <%= f.label :user_github %><br>
+    <%= f.text_field :user_github %> <%= error_message_on @developer, :user_github, :prepend_text => "*This field " %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %> <%= error_message_on @developer, :email, :prepend_text => "*Email " %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

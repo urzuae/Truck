@@ -13,9 +13,8 @@ body {
   overflow: hidden;
 }
 
-.proj {
-  padding: 10px;
-  background: #FFC;
+#main {
+  margin-left: 20px;
 }
 
 .header {
@@ -65,4 +64,33 @@ td.task {
 .cmt_date, .task_date {
   color: #888;
   float: left;
+}
+
+ul {
+  margin: 0;
+}
+
+li.dev {
+  border: solid 1px #DDD;
+  padding: 7px;
+}
+
+li.dev a {
+  text-decoration: none;
+  color: #4183C4;
+}
+
+li.proj {
+  border: solid 1px #DDD;
+  padding: 7px;
+}
+
+li.proj a {
+  text-decoration: none;
+  color: #4183C4;
+}
+
+li.found_repo {
+  float:left;
+  padding: 5px;
 }

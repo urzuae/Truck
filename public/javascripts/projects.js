@@ -1,7 +1,7 @@
 $(function() {
   
-  $("#new_project").click(function() {
-    url = '/projects/new';
+  $(".new_element").live('click', function() {
+    url = '/' + $(this).attr('name') + '/new';
     $.ajax({
       url: url,
       dataType: 'script'
@@ -9,10 +9,21 @@ $(function() {
     return false;
   });
   
+  $(".form_element").live('submit', function() {
+    data_param = $(this).serialize();
+    url_action = $(this).attr('action');
+    $.ajax({
+      url: url_action,
+      data: data_param,
+      type: 'post',
+      dataType: 'script'
+    });
+    return false;
+  });
   
   $("a.project_link").live('click', function(){
     url_action = "/projects/find/";
-    data_param = {data_param: $(this).text()};
+    data_param = {data_param: $(this).attr('id')};
     $.ajax({
       url: url_action,
       data: data_param,

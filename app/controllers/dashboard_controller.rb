@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
     @devs = Developer.all
-    @projs = Project.all
+    @projects = Project.all
   end
 
 end
