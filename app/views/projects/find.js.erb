@@ -12,17 +12,30 @@ $("#main").html(
 );
 $("#devs_side").html('\
 <div>\
-  <h3><a href="<%= root_path %>" id="home">Developers</a></h3>\
+  <li class="add_dev">\
+    <a href="#" class="new_element" id="new_developer" name="developers">+ Add new developer</a>\
+  </li>\
   <ul>\
   <% @devs.each do |dev| %>\
-    <li class="dev">\
+    <li class="dev dev_elem">\
       <%= gravatar_for dev, :size => 25 %>\
-      <a class="user_project_link" href="#" id="<%= @project.repo_name %>" name="<%=dev.id%>"><%= dev.user_github %></a>\
+      <a class="user_project_link dev_link" href="#" id="<%= @project.repo_name %>" name="<%=dev.id%>"><%= dev.github_login %></a>\
     </li>\
   <% end %>\
-    <li class="dev">\
-      <a href="#" class="new_element" id="new_developer" name="developers">+ Add new developer</a>\
-    </li>\
   </ul>\
 </div>\
 ');
+$(".dev_elem").draggable({helper:'clone',revert:"valid"});
+$("#main").droppable({drop: function() {
+  url_action = "/projects/task/"
+  data_param = {
+    data_param: $(".ui-draggable-dragging > a").attr('name'),
+    data_proj: $(".ui-draggable-dragging > a").attr('id')
+  };
+  $.ajax({
+    url: url_action,
+    data: data_param,
+    dataType: 'script'
+  });
+  return false;
+}});

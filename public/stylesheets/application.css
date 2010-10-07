@@ -26,6 +26,14 @@ body {
   color: #4B7399;
 }
 
+#repos {
+  margin-left: 30px;
+}
+
+#github, #tracks {
+  text-align: center;
+}
+
 .header {
   text-align: center;
 }
@@ -102,4 +110,34 @@ li.proj a {
 li.found_repo {
   float:left;
   padding: 5px;
+}
+
+li.add_dev {
+  border: solid 1px #DDE;
+  padding: 7px;
+}
+
+li.add_dev a{
+  text-decoration: none;
+  color: #4183C4;
+}
+
+li.ui-draggable-dragging {
+  width: 200px;
+  background: #EEE;
+}
+
+.tab_title {
+  margin-top: 10px;
+  background: #EEE;
+  overflow: hidden;
+  height: 20px;
+  border: solid 3px #DDE;
+  text-align: center;
+  vertical-align: top;
+}
+
+.tab_title a {
+  text-decoration: none;
+  color: #4183C4;
 }

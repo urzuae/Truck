@@ -11,3 +11,4 @@ db/*.sqlite3*
 .DS_Store
 database.yml
 sphinx/**/*
+authentication.yml

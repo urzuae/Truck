@@ -12,9 +12,14 @@
 ActiveRecord::Schema.define(:version => 20101005134828) do
 
   create_table "developers", :force => true do |t|
-    t.string   "user_github"
-    t.string   "email"
     t.string   "name"
+    t.string   "email"
+    t.string   "github_login"
+    t.string   "github_token"
+    t.string   "pivotal_login"
+    t.string   "pivotal_token"
+    t.string   "basecamp_login"
+    t.string   "basecamp_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

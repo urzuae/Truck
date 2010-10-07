@@ -55,4 +55,6 @@ $(function() {
     return false;
   });
   
+  $("#accordion").accordion({collapsible:true,autoHeight: false});
+  
 });

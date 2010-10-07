@@ -21,7 +21,7 @@ class Project < ActiveRecord::Base
     commits = self.commits
     unless commits.nil?
       for commit in commits["commits"]
-        if commit["author"]["login"] == dev.user_github
+        if commit["author"]["login"] == dev.github_login
           cmts << commit unless cmts.include?(commit)
         end
       end
@@ -31,7 +31,7 @@ class Project < ActiveRecord::Base
   
   def dev_tasks(dev)
     ticks = []
-    proj = try_connection(self.pivotal_id)
+    proj = try_connection(self.pivotal_id, dev)
     unless proj.nil?
       proj.tickets.each do |ticket|
         if ticket.owned_by == dev.name || ticket.requested_by == dev.name
@@ -48,13 +48,13 @@ class Project < ActiveRecord::Base
     cts = self.commits
     developers.each do |dev|
       unless clbs.nil?
-        if clbs.include?(dev.user_github)
+        if clbs.include?(dev.github_login)
           devs << dev unless devs.include?(dev)
         end
       end
       unless cts["commits"].nil?
         for commit in cts["commits"]
-          if commit["author"]["login"] == dev.user_github
+          if commit["author"]["login"] == dev.github_login
             devs << dev unless devs.include?(dev)
           end
         end
@@ -64,14 +64,13 @@ class Project < ActiveRecord::Base
     return devs
   end
   
-  def try_connection(id)
-    @pivotal = TicketMaster.new(:pivotal, {:username => 'urzuae', :password => 'redsox'})
+  def try_connection(id, dev)
     begin
+      @pivotal = TicketMaster.new(:pivotal, {:username => dev.pivotal_login, :token => dev.pivotal_token})
       @pivotal.project(id)
     rescue
       nil
     end
   end
-  
   
 end

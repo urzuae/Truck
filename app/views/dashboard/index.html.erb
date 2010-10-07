@@ -6,10 +6,12 @@
   <div class="columns on-3 same-height">
     
     <div class="column fixed sidebar" style="width:200px;">
-      <div class="container">
+      <div class="container" id="accordion">
+        <div class="tab_title"><a href="#">Developers</a></div>
         <div id="devs_side">
           <%= render 'developers/sidebar' %>
         </div>
+        <div class="tab_title"><a href="#">Projects</a></div>
         <div id="projs_side">
           <%= render 'projects/sidebar' %>
         </div>
@@ -22,23 +24,11 @@
       
       <div class="columns on-2">
         <div class="column content" id="github">
-          <table class="task_tracker">
-            <thead>
-              <th>Commit</th>
-            </thead>
-            <tbody id="commits">
-            </tbody>
-          </table>
+          <h3>Commit</h3>
         </div>
         <div style="width:10px;"></div>
         <div class="column content" id="tracks">
-          <table class="task_tracker">
-            <thead>
-              <th>Task</th>
-            </thead>
-            <tbody id="tracker">
-            </tbody>
-          </table>
+          <h3>Task</h3>
         </div>
       </div>
       

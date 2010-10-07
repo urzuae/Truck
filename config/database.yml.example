@@ -1,0 +1,18 @@
+login: &login
+  adapter: mysql
+  encoding: utf8
+  pool: 5
+  user: root
+  password: password
+
+development:
+  <<: *login
+  database: truck_development
+
+test:
+  <<: *login
+  database: truck_test
+
+production:
+  <<: *login
+  database: truck

@@ -16,14 +16,6 @@
     <%= f.text_field :pivotal_id %> <%= error_message_on @project, :pivotal_id, :prepend_text => "*This field " %><br>
   </p>
   <p>
-    <%= f.label :basecamp_id, "Basecamp HQ (id)*"%><br>
-    <%= f.text_field :basecamp_id %> <%= error_message_on @project, :basecamp_id, :prepend_text => "*This field " %><br>
-  </p>
-  <p>
-    <%= f.label :basecamp_url, "Basecamp HQ (domain)*"%><br>
-    <%= f.text_field :basecamp_url %> <%= error_message_on @project, :basecamp_url, :prepend_text => "*This field " %><br>
-  </p>
-  <p>
     <%= f.submit 'Submit' %>
   </p>
   <p>
