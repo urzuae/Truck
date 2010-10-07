@@ -1,9 +1,0 @@
-authentication:
-  pivotal:
-    username: pivotal_user
-    password: pivotal_password
-              
-  github:     
-    login: github_user        
-    token: github_token
-  
